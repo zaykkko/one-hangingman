@@ -38,13 +38,9 @@
         ctx.beginPath();
         ctx.lineWidth = 5;
         ctx.strokeStyle = "black";
+
         ctx.moveTo(10, height - 50);
         ctx.lineTo(width - width / 2, height - 50);
-        ctx.moveTo(10, height - 50);
-        ctx.moveTo((width - width / 2) / 2, height - 50);
-        ctx.lineTo((width - width / 2) / 2, 20);
-        ctx.lineTo(width / 4 + width / 2, 20);
-        ctx.lineTo(width / 4 + width / 2, height / 6);
         ctx.stroke();
     }
     function createSecretWordBorders() {
@@ -336,6 +332,15 @@
     var CANVAS_HEIGHT = 500,
         CANVAS_WIDTH = 310,
         HANGING_MAN_FRAMES = [
+            (ctx, width, height) =>
+                ctx.moveTo((width - width / 2) / 2, height - 50) &
+                ctx.lineTo((width - width / 2) / 2, 20),
+            (ctx, width) =>
+                ctx.moveTo((width - width / 2) / 2, 20) &
+                ctx.lineTo(width / 4 + width / 2, 20),
+            (ctx, width, height) =>
+                ctx.moveTo(width / 4 + width / 2, 20) &
+                ctx.lineTo(width / 4 + width / 2, height / 6),
             (ctx, width, height) =>
                 ctx.arc(
                     width / 4 + width / 2,
