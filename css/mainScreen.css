@@ -1,0 +1,308 @@
+.gameMainScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+.gameMainScreen .gameInfoWidget {
+    position: relative;
+
+    user-select: none;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--boxes-bg-light-color);
+    border-radius: 10px;
+    border: 2px dotted var(--boxes-border-light-color);
+}
+.gameMainScreen .gameInfoWidget .widgetClose {
+    position: absolute;
+
+    display: flex;
+    align-self: flex-end;
+
+    border-radius: 10px;
+
+    margin: 0.2em;
+    padding: 0 0.4em;
+
+    transition: background-color 120ms ease-in;
+    will-change: background-color;
+}
+.gameMainScreen .gameInfoWidget .widgetClose:hover {
+    background-color: var(--boxes-bg-hover-light-color);
+}
+.gameMainScreen .gameInfoWidget .widgetClose:active {
+    background-color: var(--boxes-bg-active-light-color);
+}
+.gameMainScreen .gameInfoWidget .widgetClose::after {
+    display: inline-block;
+
+    color: var(--boxes-text-color-light-color);
+    font-size: 2.7em;
+    line-height: 1;
+
+    content: "\00d7";
+
+    cursor: pointer;
+}
+.gameMainScreen .gameInfoWidget .widgetContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 1em;
+
+    padding: 1em;
+}
+.gameMainScreen .gameInfoWidget .widgetContent h2 {
+    font-weight: bold;
+    color: var(--boxes-text-color-light-color);
+    font-size: 3.2vh;
+    text-align: center;
+}
+.gameMainScreen .gameInfoWidget .widgetContent .widgetContentSteps {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5em;
+}
+.gameMainScreen
+    .gameInfoWidget
+    .widgetContent
+    .widgetContentSteps
+    .contentStep {
+    flex: 1 1 0;
+    text-align: center;
+}
+.gameMainScreen .gameForm {
+    display: flex;
+    flex-direction: row;
+    gap: 0.3em;
+}
+.gameMainScreen .gameForm .formTextfield {
+    display: flex;
+    flex-flow: row wrap;
+}
+.gameMainScreen .gameForm .formTextfield input {
+    padding: 1em;
+    background: transparent;
+    color: var(--boxes-text-color-light-color);
+    border: 2px solid var(--boxes-border-light-color);
+    border-radius: 10px 0 0 10px;
+    transition: border-color 120ms ease-in, outline 200ms;
+    will-change: border-color, outline;
+}
+.gameMainScreen .gameForm .formTextfield input:hover,
+.gameMainScreen .gameForm .formTextfield input:focus {
+    border-color: var(--boxes-border-hover-light-color);
+}
+.gameMainScreen .gameForm .formTextfield input:focus {
+    outline: 2px solid var(--boxes-outline-light-color);
+}
+.gameMainScreen .gameForm .formButtonsArea {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+.gameMainScreen .gameForm .formButtonsArea button {
+    color: var(--btn-text-color-light-color);
+    cursor: pointer;
+    background-color: var(--btn-bg-light-color);
+    border-radius: 0 10px 10px 0;
+    padding: 0 1em;
+    transition: background-color 120ms ease-in-out;
+    will-change: background-color;
+}
+.gameMainScreen .gameForm .formButtonsArea button:disabled {
+    cursor: not-allowed;
+    filter: brightness(0.7);
+}
+.gameMainScreen .gameForm .formButtonsArea button:not([disabled]):hover {
+    background-color: var(--btn-bg-hover-light-color);
+}
+.gameMainScreen .gameForm .formButtonsArea button:not([disabled]):active {
+    background-color: var(--btn-bg-active-light-color);
+}
+.gameMainScreen .gameForm .formButtonsArea button,
+.gameMainScreen .gameForm .formTextfield input {
+    font-size: 2.7vh;
+}
+.gameMainScreen .gameFormInfo {
+    color: var(--body-text-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    user-select: none;
+    line-height: 1.5;
+    gap: 0.5em;
+}
+.gameMainScreen .gameFormInfo svg {
+    fill: currentColor;
+    flex: 1 0 5vh;
+}
+.gameMainScreen .gameFormInfo h3 {
+    color: currentColor;
+    font-size: 3vh;
+}
+.gameMainScreen .gameStartBtn {
+    color: var(--btn-text-color-light-color);
+    cursor: pointer;
+    background-color: var(--btn-main-bg-light-color);
+    font-size: 2.9vh;
+    padding: 1.2em 2.2em;
+    border-radius: 10px;
+    transition: background-color 120ms ease-in;
+    will-change: background-color;
+}
+.gameMainScreen .gameStartBtn:disabled {
+    cursor: not-allowed;
+    filter: brightness(0.7);
+}
+.gameMainScreen .gameStartBtn:not([disabled]):hover {
+    background-color: var(--btn-main-bg-hover-light-color);
+}
+.gameMainScreen .gameStartBtn:not([disabled]):active {
+    background-color: var(--btn-main-bg-active-light-color);
+}
+.gameMainScreen .gameSavedWords {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.2em;
+}
+.gameMainScreen .gameSavedWords .wordsTableTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--boxes-bg-light-color);
+    border-radius: 10px 10px 0 0;
+    user-select: none;
+    padding: 0.7em;
+}
+.gameMainScreen .gameSavedWords .wordsTableTitle .tableTitle {
+    font-size: 4vh;
+    color: var(--boxes-text-color-light-color);
+    font-weight: bold;
+    text-align: center;
+}
+.gameMainScreen .gameSavedWords .wordsTableTitle .tableLength {
+    position: absolute;
+    right: 10px;
+    font-size: 2.5vh;
+    color: var(--boxes-text-color-light-color);
+    font-weight: bold;
+    text-align: center;
+}
+.gameMainScreen .gameSavedWords .wordsTable {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--boxes-bg-light-color);
+    border-radius: 0 0 10px 10px;
+    padding: 1em;
+}
+.gameMainScreen .gameSavedWords .wordsTable.emptyMsgVisible {
+    justify-content: center;
+    align-items: center;
+}
+.gameMainScreen .gameSavedWords .wordsTable.emptyMsgVisible > .tableContent {
+    display: none;
+}
+.gameMainScreen .gameSavedWords .wordsTable .tableEmptyMsg {
+    font-size: 3vh;
+    color: var(--boxes-text-color-light-color);
+    user-select: none;
+    text-align: center;
+}
+.gameMainScreen
+    .gameSavedWords
+    .wordsTable:not(.emptyMsgVisible)
+    > .tableEmptyMsg {
+    display: none;
+}
+.gameMainScreen .gameSavedWords .wordsTable .tableContent {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(12em, 0.3fr));
+    gap: 1em;
+}
+.gameMainScreen .gameSavedWords .wordsTable .tableContent .tableWord {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.gameMainScreen .gameSavedWords .wordsTable .tableContent .tableWord h3 {
+    color: var(--boxes-text-color-light-color);
+}
+.gameMainScreen
+    .gameSavedWords
+    .wordsTable
+    .tableContent
+    .tableWord:hover
+    > .wordDltBtn {
+    opacity: 1;
+}
+.gameMainScreen
+    .gameSavedWords
+    .wordsTable
+    .tableContent
+    .tableWord
+    .wordDltBtn {
+    opacity: 0;
+
+    cursor: pointer;
+
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    color: var(--btn-dlt-text-color-light-color);
+    background-color: var(--btn-dlt-bg-light-color);
+
+    width: 100%;
+
+    transition: opacity 100ms ease-in-out, background-color 120ms ease-in;
+    will-change: opacity, background-color;
+}
+.gameMainScreen
+    .gameSavedWords
+    .wordsTable
+    .tableContent
+    .tableWord
+    .wordDltBtn:active {
+    background-color: var(--btn-dlt-active-bg-light-color);
+}
+.gameMainScreen .gameSavedWords .wordsTable .tableContent .tableWord h3,
+.gameMainScreen
+    .gameSavedWords
+    .wordsTable
+    .tableContent
+    .tableWord
+    .wordDltBtn {
+    font-size: 3vh;
+    text-transform: uppercase;
+    user-select: none;
+    text-align: center;
+    word-break: break-all;
+}
+@media screen and (max-width: 50rem) {
+    .gameMainScreen .gameInfoWidget .widgetContent .widgetContentSteps {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.5em;
+    }
+}

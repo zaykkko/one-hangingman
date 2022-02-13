@@ -1,0 +1,138 @@
+.gameCanvas {
+    display: none !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 2em;
+}
+.gameCanvas .gameWordsPane {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+.gameCanvas .gameWordsPane .guessWordLines {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5em;
+}
+.gameCanvas .gameWordsPane .guessWordLines h2 {
+    font-size: 3.8vh;
+    user-select: none;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 3px solid var(--guess-word-border-light-color);
+    height: 1em;
+    width: 1em;
+    text-transform: uppercase;
+}
+.gameCanvas .gameWordsPane .missedWordsBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5em;
+}
+.gameCanvas .gameWordsPane .missedWordsBox h2 {
+    font-size: 3.8vh;
+    user-select: none;
+    text-align: center;
+    text-transform: uppercase;
+}
+.gameCanvas .gameWordsPane .letterForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+}
+.gameCanvas .gameWordsPane .letterForm input {
+    font-size: 2.6vh;
+    color: var(--boxes-text-color-light-color);
+    padding: 1em;
+    background-color: transparent;
+    border: 2px solid var(--boxes-border-light-color);
+    border-radius: 7px;
+    transition: border-color 120ms ease-in, outline 200ms;
+    will-change: border-color, outline;
+}
+.gameCanvas .gameWordsPane .letterForm input:hover,
+.gameCanvas .gameWordsPane .letterForm input:focus {
+    border-color: var(--boxes-border-hover-light-color);
+}
+.gameCanvas .gameWordsPane .letterForm input:focus {
+    outline: 2px solid var(--boxes-outline-light-color);
+}
+.gameCanvas .gameWordsPane .letterForm .checkboxWrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5em;
+}
+.gameCanvas .gameWordsPane .letterForm .checkboxWrapper label {
+    font-size: 2.7vh;
+    user-select: none;
+    color: var(--boxes-text-color-light-color);
+}
+.gameCanvas .gameWordsPane .letterForm button,
+.gameCanvas .gameWordsPane .gameFinished button {
+    color: var(--btn-text-color-light-color);
+    cursor: pointer;
+    background-color: var(--btn-bg-light-color);
+    padding: 0.7em;
+    font-size: 2.5vh;
+    border-radius: 5px;
+    transition: background-color 120ms ease-in-out;
+    will-change: background-color;
+}
+.gameCanvas .gameWordsPane .letterForm button:disabled,
+.gameCanvas .gameWordsPane .gameFinished button:disabled {
+    cursor: not-allowed;
+    filter: brightness(0.7);
+}
+.gameCanvas .gameWordsPane .letterForm button:not([disabled]):hover,
+.gameCanvas .gameWordsPane .gameFinished button:not([disabled]):hover {
+    background-color: var(--btn-bg-hover-light-color);
+}
+.gameCanvas .gameWordsPane .letterForm button:not([disabled]):active,
+.gameCanvas .gameWordsPane .gameFinished button:not([disabled]):active {
+    background-color: var(--btn-bg-active-light-color);
+}
+.gameCanvas .gameWordsPane .gameFinished {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+}
+.gameCanvas .gameWordsPane .gameFinished.gameWon,
+.gameCanvas .gameWordsPane .gameFinished.gameLost {
+    display: flex;
+}
+.gameCanvas .gameWordsPane .gameFinished h2 {
+    user-select: none;
+    text-align: center;
+}
+.gameCanvas .gameWordsPane .gameFinished .successMsg,
+.gameCanvas .gameWordsPane .gameFinished .lostMsg {
+    display: none;
+}
+.gameCanvas .gameWordsPane .gameFinished.gameWon > .successMsg {
+    display: block;
+}
+.gameCanvas .gameWordsPane .gameFinished.gameLost > .lostMsg {
+    display: block;
+}
+.gameCanvas .gameWordsPane .gameFinished .successMsg h2:nth-child(1),
+.gameCanvas .gameWordsPane .gameFinished .lostMsg h2:nth-child(1) {
+    font-weight: bold;
+}
+.gameCanvas .gameWordsPane .gameFinished .successMsg h2 {
+    color: var(--success-text-light-color);
+}
+.gameCanvas .gameWordsPane .gameFinished .lostMsg h2 {
+    color: var(--error-text-light-color);
+}
+@media screen and (max-width: 50rem) {
+    .gameCanvas {
+        flex-direction: column;
+    }
+}

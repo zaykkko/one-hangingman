@@ -1,0 +1,68 @@
+:root {
+    /* Haría falta diseñar el Dark Mode mediante @media(prefers-color-scheme: dark) pero no es algo solicitado */
+    --body-bg-light-color: #fff;
+
+    --body-text-color: #000;
+    --body-text-error-color: #cc1313;
+
+    --boxes-bg-light-color: #add8e6;
+    --boxes-bg-hover-light-color: #9ebfca;
+    --boxes-bg-active-light-color: #8da9b3;
+    --boxes-border-light-color: #7996a0;
+    --boxes-border-hover-light-color: #92b6c2;
+    --boxes-outline-light-color: rgba(87, 182, 214, 0.5);
+    --boxes-text-color-light-color: #123f4e;
+
+    --btn-bg-light-color: #79959e;
+    --btn-bg-hover-light-color: #6d858d;
+    --btn-bg-active-light-color: #5d7077;
+    --btn-text-color-light-color: #fff;
+
+    --btn-main-bg-light-color: #39a0c2;
+    --btn-main-bg-hover-light-color: #30839e;
+    --btn-main-bg-active-light-color: #27687e;
+
+    --btn-dlt-bg-light-color: rgba(196, 94, 93, 0.897);
+    --btn-dlt-active-bg-light-color: rgba(160, 78, 76, 0.897);
+    --btn-dlt-text-color-light-color: #fff;
+
+    --guess-word-border-light-color: #000;
+
+    --error-text-light-color: rgb(199, 52, 52);
+    --success-text-light-color: rgb(39, 153, 49);
+}
+body {
+    background: var(--body-bg-light-color);
+}
+h1,
+h2,
+h3,
+h4,
+label {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: normal;
+    margin: 0;
+}
+h1 {
+    font-weight: bold;
+    font-size: 5vh;
+}
+input,
+textarea,
+button {
+    font-family: "Nunito Sans", sans-serif;
+
+    outline: none;
+    border: none;
+}
+.appMount {
+    display: grid;
+    gap: 2em;
+    padding: 1.5em;
+}
+.appMount .mainContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}

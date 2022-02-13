@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="color-scheme" content="dark light">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Encriptador y desencriptador - Challenge ONE</title>
+        <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
+        <link rel="stylesheet" type="text/css" href="./css/mainScreen.css">
+        <link rel="stylesheet" type="text/css" href="./css/game.css">
+        <link rel="stylesheet" type="text/css" href="./css/footer.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="appMount">
+            <main class="mainContent">
+                <h1>2. Juego del ahorcado - Challenge ONE</h1>
+                <div class="gameMainScreen" id="main-screen">
+                    <div class="gameInfoWidget" id="info-widget">
+                        <!--div class="widgetClose" id="info-widget-close-btn"></div-->
+                        <div class="widgetContent">
+                            <h2>Cómo jugar en 3 simples pasos</h2>
+                            <div class="widgetContentSteps">
+                                <div class="contentStep">
+                                    <h2>1.</h2>
+                                    <h3>Añade palabras a la lista, cuanto más largas sean las palabras, más difícil será adivinarlas.</h3>
+                                </div>
+                                <div class="contentStep">
+                                    <h2>2.</h2>
+                                    <h3>Presiona "Iniciar juego" para comenzar el juego, una palabra entre todas las que añadiste será seleccionada y tendrás que adivinarla.</h3>
+                                </div>
+                                <div class="contentStep">
+                                    <h2>3.</h2>
+                                    <h3>¡Ten cuidado!, cuántos más fallos cometas el monigote ahorcado comenzará a dibujarse poco a poco.<br>Adivina la palabra antes de que el dibujo se complete o de que el tiempo termine.</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="gameForm" id="word-form">
+                        <div class="formTextfield">
+                            <input type="text" name="word_input" maxlength="25" placeholder="Ingresa una palabra" spellcheck="false" autocomplete="off"></input>
+                        </div>
+                        <div class="formButtonsArea">
+                            <button type="submit" id="word-submit-btn">Añadir</button>
+                        </div>
+                    </form>
+                    <button class="gameStartBtn" id="start-game-btn">Iniciar juego</button>
+                    <div class="gameFormInfo">
+                        <svg viewBox="0 0 28 28" width="35" height="35">
+                            <path d="M13.983,0C6.261,0,0.001,6.259,0.001,13.979c0,7.724,6.26,13.984,13.982,13.984s13.98-6.261,13.98-13.984 C27.963,6.259,21.705,0,13.983,0z M13.983,26.531c-6.933,0-12.55-5.62-12.55-12.553c0-6.93,5.617-12.548,12.55-12.548 c6.931,0,12.549,5.618,12.549,12.548C26.531,20.911,20.913,26.531,13.983,26.531z"/>
+                            <polygon points="15.579,17.158 16.191,4.579 11.804,4.579 12.414,17.158"/>
+                            <path d="M13.998,18.546c-1.471,0-2.5,1.029-2.5,2.526c0,1.443,0.999,2.528,2.444,2.528h0.056c1.499,0,2.469-1.085,2.469-2.528 C16.441,19.575,15.468,18.546,13.998,18.546z"/>
+                        </svg>
+                        <h3><strong>Solo letras mayúsculas</strong>.<br>Cualquier letra minúscula será convertida a mayúscula y cualquier otro símbolo que no sea alfabético será removido. <span id="game-info-repeat">Evite repetir palabras.</span></h3>
+                    </div>
+                    <div class="gameSavedWords">
+                        <div class="wordsTableTitle">
+                            <h2 class="tableTitle">Palabras guardadas</h2>
+                            <h3 class="tableLength"><span id="table-length"></span>/<span id="table-max-length"></span></h3>
+                        </div>
+                        <div class="wordsTable emptyMsgVisible" id="words-history">
+                            <h3 class="tableEmptyMsg">Aún no has añadido ninguna palabra...<br>¡Intenta al menos con "perro"!</h3>
+                            <div class="tableContent" id="words-table"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gameCanvas" id="game-container">
+                    <div class="gameWordsPane">
+                        <div class="guessWordLines" id="secret-word">
+                        </div>
+                        <div class="missedWordsBox" id="missed-letters">
+                        </div>
+                        <form class="letterForm" id="letter-form">
+                            <input type="text" name="word_or_letter" placeholder="Ingresa una letra" maxlength="1" spellcheck="false" autocomplete="off"/>
+                            <div class="checkboxWrapper">
+                                <label for="risk-check">¿Quieres arriesgar una palabra?</label>
+                                <input name="is_risking" id="risk-check" type="checkbox" />
+                            </div>
+                            <button type="submit">Probar mi suerte</button>
+                        </form>
+                        <div class="gameFinished" id="finished-msg">
+                            <div class="successMsg">
+                                <h2>¡Felicidades!</h2>
+                                <h2>Has ganado el juego.</h2>
+                            </div>
+                            <div class="lostMsg">
+                                <h2>¡Ups, más suerte la próxima!</h2>
+                                <h2>Has perdido el juego.</h2>
+                            </div>
+                            <button type="submit" id="finished-main">Volver al inicio</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="footerWrapper">
+                <h4>Hecho por <a href="https://github.com/xZayk0" target="blank">xZayk0</a>.</h4>
+                <h4>;)</h4>
+            </footer>
+        </div>
+        <script src="./js/main.js"></script>
+    </body>
+</html>
